@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -14,7 +14,9 @@ const navLinks = [
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [activeSection, setActiveSection] = useState("");
+  const lastScrollY = useRef(0);
 
   const getElementDocumentTop = (element: HTMLElement): number => {
     let top = 0;
@@ -29,6 +31,7 @@ export function Navbar() {
   const handleNavClick = (href: string, e: React.MouseEvent) => {
     e.preventDefault();
     setIsOpen(false);
+    setIsVisible(true);
 
     if (!href || href === "#" || href === "#hero") {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -54,9 +57,27 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+      setScrolled(currentScrollY > 20);
+
+      // Scroll direction detection: fadeout on scroll down, fadein on scroll up
+      if (currentScrollY <= 40) {
+        setIsVisible(true);
+      } else {
+        const delta = currentScrollY - lastScrollY.current;
+        if (delta > 8) {
+          // Scrolling down -> fade out
+          setIsVisible(false);
+        } else if (delta < -8) {
+          // Scrolling up -> fade in
+          setIsVisible(true);
+        }
+      }
+      lastScrollY.current = currentScrollY;
+
+      // Active section detection
       const sections = ["contact", "experience", "projects", "skills", "about"];
-      const scrollPos = window.scrollY + window.innerHeight * 0.4;
+      const scrollPos = currentScrollY + window.innerHeight * 0.4;
       
       let found = "";
       for (const section of sections) {
@@ -85,7 +106,10 @@ export function Navbar() {
     <>
       <header
         className={cn(
-          "sticky top-0 z-[100] w-full border-b-2 border-border transition-all duration-200",
+          "sticky top-0 z-[100] w-full border-b-2 border-border transition-all duration-300 ease-in-out",
+          isVisible || isOpen
+            ? "opacity-100 translate-y-0 pointer-events-auto"
+            : "opacity-0 -translate-y-full pointer-events-none",
           scrolled
             ? "bg-[#f7f4ef]/95 backdrop-blur-md py-2.5 shadow-sm"
             : "bg-[#f7f4ef]/85 backdrop-blur-sm py-3.5"
