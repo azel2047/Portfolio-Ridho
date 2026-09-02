@@ -1,0 +1,292 @@
+@import "tailwindcss";
+
+@theme {
+  --color-black: #09090b;
+  --color-white: #ffffff;
+  --color-bg: #f7f4ef;
+  --color-bg-alt: #ece7de;
+  --color-text-primary: #09090b;
+  --color-text-secondary: #3f3f46;
+  --color-text-muted: #71717a;
+  --color-yellow: #fde047;
+  --color-yellow-dark: #eab308;
+  --color-green: #4ade80;
+  --color-pink: #f472b6;
+  --color-blue: #38bdf8;
+  --color-purple: #c084fc;
+  --color-border: #09090b;
+
+  --font-heading: var(--font-space-grotesk);
+  --font-body: var(--font-inter);
+}
+
+/* ============================================
+   SPACING SCALE (reference custom properties)
+   ============================================ */
+:root {
+  --space-xs: 0.25rem;   /* 4px */
+  --space-sm: 0.5rem;    /* 8px */
+  --space-md: 1rem;      /* 16px */
+  --space-lg: 1.5rem;    /* 24px */
+  --space-xl: 2rem;      /* 32px */
+  --space-2xl: 3rem;     /* 48px */
+  --space-3xl: 4rem;     /* 64px */
+
+  --section-padding: clamp(3rem, 6vw, 5rem);
+  --container-padding: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+svg {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-body), system-ui, -apple-system, sans-serif;
+  background-color: #f7f4ef;
+  background-image: 
+    radial-gradient(at 8% 10%, rgba(253, 224, 71, 0.30) 0px, transparent 48%),
+    radial-gradient(at 92% 12%, rgba(244, 114, 182, 0.22) 0px, transparent 45%),
+    radial-gradient(at 88% 48%, rgba(56, 189, 248, 0.18) 0px, transparent 50%),
+    radial-gradient(at 10% 55%, rgba(74, 222, 128, 0.18) 0px, transparent 48%),
+    radial-gradient(at 50% 82%, rgba(253, 224, 71, 0.24) 0px, transparent 50%),
+    radial-gradient(at 90% 95%, rgba(244, 114, 182, 0.18) 0px, transparent 45%);
+  background-attachment: fixed;
+  background-size: cover;
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   RESPONSIVE CONTAINER
+   ============================================ */
+.container-main {
+  width: 100%;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+/* Readable text block constraint */
+.prose-width {
+  max-width: 60ch;
+}
+
+/* ============================================
+   SELECTION & SCROLLBAR
+   ============================================ */
+::selection {
+  background: var(--color-yellow);
+  color: #000000;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #ebe7df;
+}
+::-webkit-scrollbar-thumb {
+  background: #18181b;
+  border: 2px solid #ebe7df;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #fde047;
+}
+
+/* ============================================
+   SCROLL REVEAL ANIMATION SYSTEM
+   ============================================ */
+.reveal-init {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-init.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 60ms; }
+.delay-2 { transition-delay: 120ms; }
+.delay-3 { transition-delay: 180ms; }
+.delay-4 { transition-delay: 240ms; }
+
+/* ============================================
+   NEO-BRUTALIST COMPONENT UTILITIES
+   ============================================ */
+.neo-card {
+  border: 2px solid var(--color-border);
+  background-color: #ffffff;
+  box-shadow: 4px 4px 0 var(--color-border);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.neo-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--color-border);
+}
+
+.neo-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 2px solid var(--color-border);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+  box-shadow: 3px 3px 0 var(--color-border);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  user-select: none;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.neo-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--color-border);
+}
+
+.neo-btn:active {
+  transform: translate(0, 0);
+  box-shadow: 1px 1px 0 var(--color-border);
+}
+
+/* ============================================
+   KEYFRAME ANIMATIONS
+   ============================================ */
+@keyframes marqueeLeft {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes gentleFloat {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -5px, 0); }
+}
+
+.animate-gentle-float {
+  animation: gentleFloat 4s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.08); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* ============================================
+   STACKED SECTION COVER SYSTEM
+   ============================================ */
+.stacked-section {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  min-height: 100svh;
+  will-change: transform, opacity;
+  transform-origin: center top;
+}
+
+.stacked-panel-hero {
+  z-index: 10;
+  background-color: #f7f4ef;
+}
+
+.stacked-panel-about {
+  z-index: 20;
+  background-color: #ffffff;
+  border-top: 2px solid var(--color-border);
+  border-top-left-radius: 28px;
+  border-top-right-radius: 28px;
+  box-shadow: 0 -16px 40px rgba(0, 0, 0, 0.12), 0 -2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.stacked-panel-skills {
+  z-index: 30;
+  background-color: #f7f4ef;
+  border-top: 2px solid var(--color-border);
+  border-top-left-radius: 28px;
+  border-top-right-radius: 28px;
+  box-shadow: 0 -16px 40px rgba(0, 0, 0, 0.14), 0 -2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.stacked-panel-projects {
+  z-index: 40;
+  background-color: #ffffff;
+  border-top: 2px solid var(--color-border);
+  border-top-left-radius: 28px;
+  border-top-right-radius: 28px;
+  box-shadow: 0 -16px 40px rgba(0, 0, 0, 0.14), 0 -2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.stacked-panel-experience {
+  z-index: 50;
+  background-color: #f7f4ef;
+  border-top: 2px solid var(--color-border);
+  border-top-left-radius: 28px;
+  border-top-right-radius: 28px;
+  box-shadow: 0 -16px 40px rgba(0, 0, 0, 0.14), 0 -2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.stacked-panel-contact {
+  z-index: 60;
+  background: radial-gradient(ellipse at 50% -10%, #222228 0%, #09090b 80%);
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  border-top-left-radius: 28px;
+  border-top-right-radius: 28px;
+  box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.5), 0 -4px 12px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+}
+
+@media (min-width: 640px) {
+  .stacked-panel-about,
+  .stacked-panel-skills,
+  .stacked-panel-projects,
+  .stacked-panel-experience,
+  .stacked-panel-contact {
+    border-top-left-radius: 36px;
+    border-top-right-radius: 36px;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION PREFERENCE
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .stacked-section {
+    position: relative !important;
+    top: auto !important;
+    transform: none !important;
+    min-height: auto !important;
+  }
+}
