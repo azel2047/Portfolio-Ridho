@@ -209,7 +209,7 @@ export function Hero() {
               <span className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-black">
                 <Sparkles className="h-3.5 w-3.5 text-pink animate-pulse" /> Core Stack:
               </span>
-              {["Next.js 15", "TypeScript", "Tailwind CSS", "React 19", "Node.js"].map((tech) => (
+              {["Next.js 15", "TypeScript", "Tailwind CSS", "React 19", "Node.js", "Laravel", "Filament", "Php", "MySQL"].map((tech) => (
                 <span
                   key={tech}
                   className="border border-border bg-white px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-black shadow-[1px_1px_0_#09090b] transition-all duration-150 hover:bg-black hover:text-white hover:scale-105 cursor-default"

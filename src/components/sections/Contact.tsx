@@ -162,8 +162,7 @@ export function Contact() {
   return (
     <section
       ref={sectionRef}
-      className="stacked-section stacked-panel-contact flex flex-col justify-center overflow-hidden"
-      id="contact"
+      className="flex-1 flex flex-col justify-center overflow-hidden"
       style={{
         paddingBlock: "clamp(3rem, 6vw, 5rem)",
       }}

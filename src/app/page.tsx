@@ -35,7 +35,7 @@ export default function Home() {
         <Experience />
 
         {/* Panel 6: Contact & Footer */}
-        <div id="contact-panel" className="stacked-section stacked-panel-contact flex flex-col justify-between min-h-screen">
+        <div id="contact" className="stacked-section stacked-panel-contact flex flex-col justify-between min-h-screen">
           <Contact />
           <Footer />
         </div>
