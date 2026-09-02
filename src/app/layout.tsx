@@ -17,7 +17,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Ridho — Digital Experience",
+  title: "Ridho — Portfolio",
   description:
     "Personal portfolio of Ridho — Informatics student crafting digital experiences at the intersection of design, technology, and creativity.",
 };
