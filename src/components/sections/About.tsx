@@ -77,7 +77,7 @@ export function About() {
     },
     {
       title: "Modern Engineering",
-      desc: "Architecting modular, type-safe frontend systems using Next.js App Router, React 19, TypeScript, and clean APIs.",
+      desc: "Architecting modular, type-safe frontend systems using Next.js App Router, React, TypeScript, and clean APIs.",
       icon: Sparkles,
       bgColor: "bg-pink",
     },
@@ -130,7 +130,7 @@ export function About() {
                 Crafting digital experiences with intent.
               </h3>
               <p className="text-sm text-text-secondary leading-relaxed mb-5 font-medium">
-                I&apos;m Ridho — an Informatics student and fullstack engineer based in Indonesia.
+                I&apos;m Ridho an Informatics student and fullstack engineer.
                 I specialize in turning intricate technical problems into intuitive, responsive, and
                 visually striking digital web applications.
               </p>
@@ -164,8 +164,7 @@ export function About() {
                 <strong className="text-black bg-pink/40 px-1 border-b-2 border-black">creativity</strong> come together seamlessly.
               </p>
               <p className="text-xs sm:text-sm text-text-secondary leading-relaxed font-medium">
-                From architecting robust frontends with Next.js &amp; TypeScript to polishing micro-interactions and Figma prototypes, 
-                every detail is optimized for speed, reliability, and human delight.
+                From architecting robust fullstack applications to crafting fluid micro-interactions and interactive prototypes, every detail is optimized for speed, reliability, and human delight.
               </p>
             </div>
 
@@ -178,9 +177,9 @@ export function About() {
                 <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover/btn:translate-x-1" />
               </a>
 
-              <span className="font-mono text-xs font-bold text-text-muted">
+              {/* <span className="font-mono text-xs font-bold text-text-muted">
                 01 / 05
-              </span>
+              </span> */}
             </div>
           </div>
         </div>

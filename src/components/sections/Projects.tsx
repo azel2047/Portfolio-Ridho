@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Brain, Mountain, Music, ArrowUpRight } from "lucide-react";
+import Image from "next/image";
+import { Brain, Mountain, Music, ArrowUpRight, Wallet } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -43,21 +44,38 @@ export function Projects() {
   const projects = [
     {
       id: "01",
-      categoryType: "ai",
+      categoryType: "webapp",
       featured: true,
+      title: "Digital Student Savings",
+      tagline: "Modern & Integrated Digital School Savings",
+      category: "Fullstack Web App",
+      desc: "A modern, integrated digital savings platform for schools, enabling students, staff, and administrators to securely monitor savings with speed and accuracy.",
+      tags: ["HTML & CSS", "Tailwind CSS", "JavaScript", "PHP", "Laravel", "Python", "MySQL"],
+      accentBg: "bg-green",
+      icon: Wallet,
+      previewLabel: "Digital Student Savings",
+      image: "/projects/tabungan-digital-siswa.png",
+      liveUrl: "https://github.com/ridhoaddin/Tabungan-Siswa-Digital",
+      githubUrl: "https://github.com/ridhoaddin/Tabungan-Siswa-Digital",
+    },
+    {
+      id: "02",
+      categoryType: "ai",
+      featured: false,
       title: "Neural Dashboard",
       tagline: "Real-time AI Model & Training Visualization Platform",
       category: "AI / Data Engineering",
       desc: "An interactive web-based analytics control room that visualizes deep learning layer activations, loss metrics, and training steps with sub-second WebSocket streaming.",
-      tags: ["Next.js 15", "React 19", "D3.js", "TypeScript", "WebSocket", "Tailwind CSS"],
+      tags: ["Next.js", "React", "D3.js", "TypeScript", "WebSocket", "Tailwind CSS"],
       accentBg: "bg-pink",
       icon: Brain,
       previewLabel: "neural-metrics.dev",
+      image: "/projects/neural-dashboard.png",
       liveUrl: "https://github.com",
       githubUrl: "https://github.com",
     },
     {
-      id: "02",
+      id: "03",
       categoryType: "webapp",
       featured: false,
       title: "Trekker Trail Guide",
@@ -68,11 +86,12 @@ export function Projects() {
       accentBg: "bg-yellow",
       icon: Mountain,
       previewLabel: "trekker-trails.app",
+      image: "/projects/trekker-trail-guide.png",
       liveUrl: "https://github.com",
       githubUrl: "https://github.com",
     },
     {
-      id: "03",
+      id: "04",
       categoryType: "creative",
       featured: false,
       title: "Beat Studio Cloud",
@@ -83,6 +102,7 @@ export function Projects() {
       accentBg: "bg-green",
       icon: Music,
       previewLabel: "beatstudio.io",
+      image: "",
       liveUrl: "https://github.com",
       githubUrl: "https://github.com",
     },
@@ -145,7 +165,7 @@ export function Projects() {
 
           <div className="flex flex-col md:items-end gap-3">
             <p className="max-w-md text-xs sm:text-sm text-text-secondary leading-relaxed font-medium">
-              Selected works spanning AI tooling, fullstack architectures, and creative computing.
+              Selected works spanning AI tooling, full-stack architectures, and creative computing.
             </p>
 
             {/* Filter Tabs */}
@@ -198,16 +218,45 @@ export function Projects() {
                     )}
                   </div>
 
+                  {/* Browser Window Image / Visual Preview */}
+                  <div className="relative w-full aspect-[16/9] border-b-2 border-border overflow-hidden bg-[#121915]">
+                    {project.image ? (
+                      <a
+                        href={project.image}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="relative block w-full h-full cursor-zoom-in"
+                        title="Click to view full screenshot"
+                      >
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
+                          <span className="border-2 border-border bg-yellow px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-black shadow-[2px_2px_0_#09090b]">
+                            View Screenshot
+                          </span>
+                        </div>
+                      </a>
+                    ) : (
+                      <div className="w-full h-full flex flex-col items-center justify-center bg-[#f7f4ef] relative overflow-hidden group-hover:bg-[#efece5] transition-colors">
+                        <div className={`relative flex h-14 w-14 items-center justify-center border-2 border-border ${project.accentBg} text-black shadow-[3px_3px_0_#09090b] transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3`}>
+                          <Icon className="h-7 w-7" />
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
                   {/* Card Content Top */}
                   <div className="p-5 sm:p-6">
-                    <div className="flex items-start gap-3.5 mb-3.5">
+                    <div className="flex items-center gap-3.5 mb-3.5">
                       <div className={`flex h-12 w-12 shrink-0 items-center justify-center border-2 border-border ${project.accentBg} text-black shadow-[2px_2px_0_#09090b] transition-transform duration-200 group-hover:scale-110 group-hover:-rotate-3`}>
                         <Icon className="h-6 w-6" />
                       </div>
                       <div>
-                        <div className="font-mono text-[11px] font-bold uppercase tracking-wider text-text-muted mb-0.5">
-                          {project.id} &mdash; {project.category}
-                        </div>
                         <h3 className="font-heading text-lg sm:text-xl font-bold uppercase tracking-tight text-black">
                           {project.title}
                         </h3>
@@ -242,7 +291,7 @@ export function Projects() {
                 </div>
 
                 {/* Card Bottom Links */}
-                <div className="border-t-2 border-border p-3.5 bg-[#f7f4ef] flex items-center justify-between gap-2 mt-auto">
+                {/* <div className="border-t-2 border-border p-3.5 bg-[#f7f4ef] flex items-center justify-between gap-2 mt-auto">
                   <a
                     href={project.liveUrl}
                     target="_blank"
@@ -262,7 +311,7 @@ export function Projects() {
                     <GithubIcon className="h-3.5 w-3.5 transition-transform duration-200 group-hover/btn:rotate-12" />
                     <span>Source</span>
                   </a>
-                </div>
+                </div> */}
               </div>
             );
           })}

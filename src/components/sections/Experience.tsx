@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { Briefcase, GraduationCap } from "lucide-react";
+import { GraduationCap, BookOpen, Code2 } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -41,37 +41,57 @@ export function Experience() {
   }, []);
 
   const items = [
-    {
-      period: "2024 — PRESENT",
-      role: "Freelance Web Developer & UI Designer",
-      org: "Self-Employed / Independent",
-      type: "Contract / Project-Based",
-      icon: Briefcase,
-      badgeColor: "bg-green",
-      desc: "Delivering custom high-performance web applications, responsive landing pages, and interactive UI prototypes for clients. Handling frontend architecture, API integrations, and SEO optimization.",
-      skills: ["Next.js", "TypeScript", "Tailwind CSS", "Figma", "REST APIs"],
-    },
-    {
-      period: "2023 — 2024",
-      role: "UI/UX Design & Front-End Intern",
-      org: "Creative Lab Studio",
-      type: "Internship",
-      icon: Briefcase,
-      badgeColor: "bg-yellow",
-      desc: "Collaborated with product teams to conduct usability research, create wireframes & design systems in Figma, and build accessible, responsive components for web products.",
-      skills: ["Figma", "User Research", "Design Systems", "Prototyping", "HTML/CSS"],
-    },
-    {
-      period: "2025 — PRESENT",
-      role: "Informatics Engineering Student",
-      org: "STT Terpadu Nurul Fikri",
-      type: "Formal Education",
-      icon: GraduationCap,
-      badgeColor: "bg-pink",
-      desc: "Actively developing my skills in programming, software engineering, and modern web technologies while managing freelance projects. Focused on building complex, scalable applications and continuous learning in AI and data engineering.",
-      skills: ["Algorithms", "Data Structures", "System Architecture", "Team Collaboration"],
-    },
-  ];
+  {
+    period: "2025 — PRESENT",
+    role: "Informatics Engineering Student",
+    org: "STT Terpadu Nurul Fikri",
+    type: "Formal Education",
+    icon: GraduationCap,
+    badgeColor: "bg-pink",
+    desc: "Building a strong foundation in programming, software engineering, and modern web technologies through academic study and hands-on projects.",
+    skills: [
+      "Programming",
+      "Web Development",
+      "Database",
+      "Algorithms",
+      "Data Structures",
+    ],
+  },
+
+  {
+    period: "2025 — PRESENT",
+    role: "Self Taught Developer",
+    org: "Independent Learning",
+    type: "Self Development",
+    icon: BookOpen,
+    badgeColor: "bg-green",
+    desc: "Exploring web development through self directed learning, personal projects, and hands on experimentation with modern development tools and technologies.",
+    skills: [
+      "HTML / CSS",
+      "JavaScript",
+      "React",
+      "Next.js",
+      "Laravel",
+    ],
+  },
+
+  {
+    period: "2025 — PRESENT",
+    role: "Web Development Projects",
+    org: "Independent / Academic Projects",
+    type: "Project Based Learning",
+    icon: Code2,
+    badgeColor: "bg-yellow",
+    desc: "Building practical web projects to strengthen my skills in frontend development, backend systems, databases, and modern web technologies.",
+    skills: [
+      "Next.js",
+      "React",
+      "Laravel",
+      "PHP",
+      "MySQL",
+    ],
+  },
+];
 
   return (
     <section

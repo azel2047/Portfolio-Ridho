@@ -17,8 +17,8 @@ export function Hero() {
   // Typewriter effect state for small bio text — Continuous Smooth Looping
   const phrases = [
     "Informatics student & creative web engineer specializing in crafting fast, accessible, and memorable digital products at the intersection of modern engineering and thoughtful design.",
-    "Building scalable fullstack architectures with Next.js 15, TypeScript, React 19, and Tailwind CSS.",
-    "Crafting intuitive user interfaces, design systems, and fluid micro-interactions with thoughtful precision.",
+    "Building scalable fullstack architectures with Next.js, TypeScript, React, and Tailwind CSS.",
+    "Crafting intuitive user interfaces, design systems, and fluid micro interactions with thoughtful precision.",
   ];
 
   const [phraseIndex, setPhraseIndex] = useState(0);
@@ -207,9 +207,9 @@ export function Hero() {
             {/* Core Stack Badges */}
             <div ref={stackRef} className="flex flex-wrap items-center gap-2 pt-1 text-xs font-semibold text-text-secondary">
               <span className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-black">
-                <Sparkles className="h-3.5 w-3.5 text-pink animate-pulse" /> Core Stack:
+                Core Stack:
               </span>
-              {["Next.js 15", "TypeScript", "Tailwind CSS", "React 19", "Node.js", "Laravel", "Filament", "Php", "MySQL"].map((tech) => (
+              {["Next.js", "TypeScript", "Tailwind CSS", "React", "Node.js", "Laravel", "Filament", "Php", "MySQL", "Python", "Git"].map((tech) => (
                 <span
                   key={tech}
                   className="border border-border bg-white px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-black shadow-[1px_1px_0_#09090b] transition-all duration-150 hover:bg-black hover:text-white hover:scale-105 cursor-default"
