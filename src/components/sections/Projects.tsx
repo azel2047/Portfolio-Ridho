@@ -52,7 +52,6 @@ export function Projects() {
       tags: ["HTML & CSS", "Tailwind CSS", "JavaScript", "PHP", "Laravel", "Python", "MySQL"],
       accentBg: "bg-green",
       icon: Wallet,
-      previewLabel: "Digital Student Savings",
       image: "/projects/tabungan-digital-siswa.png",
       liveUrl: "https://github.com/ridhoaddin/Tabungan-Siswa-Digital",
       githubUrl: "https://github.com/ridhoaddin/Tabungan-Siswa-Digital",
@@ -68,7 +67,6 @@ export function Projects() {
       tags: ["Next.js", "React", "D3.js", "TypeScript", "WebSocket", "Tailwind CSS"],
       accentBg: "bg-pink",
       icon: Brain,
-      previewLabel: "neural-metrics",
       image: "/projects/neural-dashboard.png",
       liveUrl: "https://github.com",
       githubUrl: "https://github.com",
@@ -84,7 +82,6 @@ export function Projects() {
       tags: ["Next.js", "Mapbox GL", "PostgreSQL", "Prisma", "Tailwind CSS"],
       accentBg: "bg-yellow",
       icon: Mountain,
-      previewLabel: "trekker-trails",
       image: "/projects/trekker-trail-guide.png",
       liveUrl: "https://github.com",
       githubUrl: "https://github.com",
@@ -191,9 +188,6 @@ export function Projects() {
                       <span className="h-2.5 w-2.5 rounded-full border border-border bg-yellow" />
                       <span className="h-2.5 w-2.5 rounded-full border border-border bg-green" />
                     </div>
-                    <span className="font-mono text-[11px] font-bold text-text-secondary">
-                      {project.previewLabel}
-                    </span>
                     {project.featured && (
                       <span className="border border-border bg-yellow px-1.5 py-0.2 text-[9px] font-black uppercase tracking-wider text-black">
                         FEATURED
