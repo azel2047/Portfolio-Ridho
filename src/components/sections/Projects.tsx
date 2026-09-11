@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { Brain, Mountain, Music, ArrowUpRight, Wallet } from "lucide-react";
+import { Brain, Mountain, ArrowUpRight, Wallet } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -38,7 +38,6 @@ export function Projects() {
     { id: "all", label: "All Projects" },
     { id: "webapp", label: "Web Apps" },
     { id: "ai", label: "AI & Data" },
-    { id: "creative", label: "Creative Tech" },
   ];
 
   const projects = [
@@ -69,7 +68,7 @@ export function Projects() {
       tags: ["Next.js", "React", "D3.js", "TypeScript", "WebSocket", "Tailwind CSS"],
       accentBg: "bg-pink",
       icon: Brain,
-      previewLabel: "neural-metrics.dev",
+      previewLabel: "neural-metrics",
       image: "/projects/neural-dashboard.png",
       liveUrl: "https://github.com",
       githubUrl: "https://github.com",
@@ -85,24 +84,8 @@ export function Projects() {
       tags: ["Next.js", "Mapbox GL", "PostgreSQL", "Prisma", "Tailwind CSS"],
       accentBg: "bg-yellow",
       icon: Mountain,
-      previewLabel: "trekker-trails.app",
+      previewLabel: "trekker-trails",
       image: "/projects/trekker-trail-guide.png",
-      liveUrl: "https://github.com",
-      githubUrl: "https://github.com",
-    },
-    {
-      id: "04",
-      categoryType: "creative",
-      featured: false,
-      title: "Beat Studio Cloud",
-      tagline: "Collaborative Web-Audio Synthesizer",
-      category: "Creative Audio Tech",
-      desc: "In-browser multi-track drum sequencer and audio synthesis engine with real-time peer audio sync and canvas spectrum visualizer.",
-      tags: ["React", "Web Audio API", "WebRTC", "Canvas API", "TypeScript"],
-      accentBg: "bg-green",
-      icon: Music,
-      previewLabel: "beatstudio.io",
-      image: "",
       liveUrl: "https://github.com",
       githubUrl: "https://github.com",
     },
